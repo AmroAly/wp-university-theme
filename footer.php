@@ -16,10 +16,13 @@
         <nav class="nav-list">
           <ul>
             <li><a href="<?php echo site_url('/about-us'); ?>">About Us</a></li>
-            <li><a href="<?php echo site_url('/privacy-policy'); ?>">Privacy Policy</a></li>
+            
             <li><a href="#">Events</a></li>
             <li><a href="#">Campuses</a></li>
           </ul>
+          <!-- <?php wp_nav_menu([
+            'theme_location' => 'footerLocationOne'
+          ]); ?> -->
         </nav>
       </div>
 
@@ -28,9 +31,12 @@
         <nav class="nav-list">
           <ul>
             <li><a href="#">Legal</a></li>
-            <li><a href="#">Privacy</a></li>
+            <li><a href="<?php echo site_url('/privacy-policy'); ?>">Privacy Policy</a></li>
             <li><a href="#">Careers</a></li>
           </ul>
+          <!-- <?php wp_nav_menu([
+            'theme_location' => 'footerLocationTwo'
+          ]); ?> -->
         </nav>
       </div>
     </div>
