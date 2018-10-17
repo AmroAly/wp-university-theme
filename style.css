@@ -1983,6 +1983,10 @@ html {
     font-size: 1.9rem;
     margin-bottom: .75rem;
   }
+
+  .headline-post-title a {
+    text-decoration: none;
+  }
   
   @media (min-width: 530px) {
   
