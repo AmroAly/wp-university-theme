@@ -1,0 +1,13 @@
+exports.themeLocation = '/var/www/html/docker-dev/my_wordpress/wp-content/wp-content/themes/wp-university-theme/';
+exports.urlToPreview = 'http://localhost:8000/';
+
+// If you're using Local by Flywheel you will
+// want your settings to be similar to the examples below:
+
+// exports.themeLocation = './public/wp-content/themes/fictional-university-theme/';
+// exports.urlToPreview = 'http://fictional-university.local/';
+
+// Simply remove the two slashes at the front of those lines
+// to uncomment them and then delete lines #1 and #2.
+
+// Be SURE to update urlToPreview to YOUR domain and not mine.
