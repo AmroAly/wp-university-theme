@@ -15,3 +15,5 @@ function university_features() {
     register_nav_menu('footerLocationTwo', 'Footer Location Two');
     add_theme_support('title');
 }
+
+add_action('after_setup_theme', 'university_features');
