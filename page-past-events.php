@@ -8,15 +8,31 @@ get_header();
 <div class="page-banner__content container container--narrow">
   <h1 class="page-banner__title">Past Events</h1>
   <div class="page-banner__intro">
-    <p>See what's going on in our world.</p>
+    <p>A recap of our past events.</p>
   </div>
 </div>  
 </div>
 
   <div class="container container--narrow page-section">
-    <?php 
-    while(have_posts()) {
-      the_post(); ?>
+    <?php
+    $today = date('Ymd');
+    $pastEvents = new WP_Query(array(
+        'post_type' => 'event',
+        'post_per_page' => 1,
+        'orderby'  => 'event_date',
+        'order' => 'DESC',
+        'meta_query' => array(
+        array(
+            'key' => 'event_date',
+            'compare' => '<',
+            'value' => $today,
+            'type' => 'numeric'
+        )
+        )
+    ));
+
+    while($pastEvents->have_posts()) {
+        $pastEvents->the_post(); ?>
       
       <div class="event-summary">
             <a class="event-summary__date t-center" href="#">
@@ -41,3 +57,4 @@ get_header();
 get_footer();
 
 ?>
+
