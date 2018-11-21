@@ -16,9 +16,20 @@
       <div class="full-width-split__inner">
         <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
         <?php
+          $today = date('Ymd');
           $homepageEvents = new WP_Query(array(
              'post_pre_page' => 2,
-             'post_type' => 'event'
+             'post_type' => 'event',
+             'orderby'  => 'event_date',
+             'order' => 'DESC',
+             'meta_query' => array(
+               array(
+                 'key' => 'event_date',
+                 'compare' => '>=',
+                 'value' => $today,
+                 'type' => 'numeric'
+               )
+             )
           ));
 
           while($homepageEvents->have_posts()) {
@@ -41,7 +52,7 @@
           }
         ?>
         
-        <p class="t-center no-margin"><a href="#" class="btn btn--blue">View All Events</a></p>
+        <p class="t-center no-margin"><a href="<?php echo site_url('/events'); ?>" class="btn btn--blue">View All Events</a></p>
 
       </div>
     </div>
