@@ -17,8 +17,8 @@ get_header();
     <?php
     $today = date('Ymd');
     $pastEvents = new WP_Query(array(
+        'paged' => get_query_var('paged', 1),
         'post_type' => 'event',
-        'post_per_page' => 1,
         'orderby'  => 'event_date',
         'order' => 'DESC',
         'meta_query' => array(
@@ -49,7 +49,9 @@ get_header();
         </div>
 
     <?php }
-    echo paginate_links();
+    echo paginate_links(array(
+      'total' => $pastEvents->max_num_pages
+    ));
     ?>
   </div>
 
